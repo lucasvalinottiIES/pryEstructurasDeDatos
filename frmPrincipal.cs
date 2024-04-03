@@ -27,5 +27,11 @@ namespace pryEstructurasDeDatos
             frmDesarrollador frm = new frmDesarrollador();
             frm.ShowDialog();
         }
+
+        private void cmdCola_Click(object sender, EventArgs e)
+        {
+            frmCola frm = new frmCola();
+            frm.ShowDialog();
+        }
     }
 }
