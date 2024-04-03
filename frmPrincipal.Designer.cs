@@ -72,14 +72,14 @@
             // cmdDesarrollador
             // 
             this.cmdDesarrollador.Name = "cmdDesarrollador";
-            this.cmdDesarrollador.Size = new System.Drawing.Size(144, 22);
+            this.cmdDesarrollador.Size = new System.Drawing.Size(180, 22);
             this.cmdDesarrollador.Text = "Desarrollador";
             this.cmdDesarrollador.Click += new System.EventHandler(this.cmdDesarrollador_Click);
             // 
             // cmdSalir
             // 
             this.cmdSalir.Name = "cmdSalir";
-            this.cmdSalir.Size = new System.Drawing.Size(144, 22);
+            this.cmdSalir.Size = new System.Drawing.Size(180, 22);
             this.cmdSalir.Text = "Salir";
             this.cmdSalir.Click += new System.EventHandler(this.cmdSalir_Click);
             // 
@@ -107,6 +107,7 @@
             this.cmdPila.Name = "cmdPila";
             this.cmdPila.Size = new System.Drawing.Size(180, 22);
             this.cmdPila.Text = "Pila";
+            this.cmdPila.Click += new System.EventHandler(this.cmdPila_Click);
             // 
             // toolStripSeparator1
             // 

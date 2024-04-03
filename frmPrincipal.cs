@@ -33,5 +33,11 @@ namespace pryEstructurasDeDatos
             frmCola frm = new frmCola();
             frm.ShowDialog();
         }
+
+        private void cmdPila_Click(object sender, EventArgs e)
+        {
+            frmPila frm = new frmPila();
+            frm.ShowDialog();
+        }
     }
 }
