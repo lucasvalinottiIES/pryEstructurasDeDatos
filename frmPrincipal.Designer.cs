@@ -72,14 +72,14 @@
             // cmdDesarrollador
             // 
             this.cmdDesarrollador.Name = "cmdDesarrollador";
-            this.cmdDesarrollador.Size = new System.Drawing.Size(180, 22);
+            this.cmdDesarrollador.Size = new System.Drawing.Size(144, 22);
             this.cmdDesarrollador.Text = "Desarrollador";
             this.cmdDesarrollador.Click += new System.EventHandler(this.cmdDesarrollador_Click);
             // 
             // cmdSalir
             // 
             this.cmdSalir.Name = "cmdSalir";
-            this.cmdSalir.Size = new System.Drawing.Size(180, 22);
+            this.cmdSalir.Size = new System.Drawing.Size(144, 22);
             this.cmdSalir.Text = "Salir";
             this.cmdSalir.Click += new System.EventHandler(this.cmdSalir_Click);
             // 
@@ -119,12 +119,14 @@
             this.cmdListaSimple.Name = "cmdListaSimple";
             this.cmdListaSimple.Size = new System.Drawing.Size(180, 22);
             this.cmdListaSimple.Text = "Lista Simple";
+            this.cmdListaSimple.Click += new System.EventHandler(this.cmdListaSimple_Click);
             // 
             // cmdListaDoble
             // 
             this.cmdListaDoble.Name = "cmdListaDoble";
             this.cmdListaDoble.Size = new System.Drawing.Size(180, 22);
             this.cmdListaDoble.Text = "Lista Doble";
+            this.cmdListaDoble.Click += new System.EventHandler(this.cmdListaDoble_Click);
             // 
             // estructurasNoLinealesToolStripMenuItem
             // 

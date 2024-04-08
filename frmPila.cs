@@ -16,5 +16,42 @@ namespace pryEstructurasDeDatos
         {
             InitializeComponent();
         }
+
+        clsPila PilaDePersonas = new clsPila();
+
+        private void cmdAgregar_Click(object sender, EventArgs e)
+        {
+            clsNodo objNodo = new clsNodo();
+            objNodo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
+            objNodo.Nombre = txtNuevoNombre.Text;
+            objNodo.Tramite = txtNuevoTramite.Text;
+            PilaDePersonas.Agregar(objNodo);
+            PilaDePersonas.Recorrer(dgvGrilla);
+            PilaDePersonas.Recorrer(lstLista);
+            PilaDePersonas.Recorrer();
+            txtNuevoCodigo.Text = "";
+            txtNuevoNombre.Text = "";
+            txtNuevoTramite.Text = "";
+        }
+
+        private void cmdEliminar_Click(object sender, EventArgs e)
+        {
+            if (PilaDePersonas.Primero != null)
+            {
+                lblCodigo.Text = PilaDePersonas.Primero.Codigo.ToString();
+                lblNombre.Text = PilaDePersonas.Primero.Nombre;
+                lblTramite.Text = PilaDePersonas.Primero.Tramite;
+                PilaDePersonas.Eliminar();
+                PilaDePersonas.Recorrer(dgvGrilla);
+                PilaDePersonas.Recorrer(lstLista);
+                PilaDePersonas.Recorrer();
+            }
+            else
+            {
+                lblCodigo.Text = "";
+                lblNombre.Text = "";
+                lblTramite.Text = "";
+            }
+        }
     }
 }

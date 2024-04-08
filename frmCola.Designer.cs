@@ -31,27 +31,27 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCola));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtNuevoCodigo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtNuevoTramite = new System.Windows.Forms.TextBox();
+            this.cmdAgregar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtNuevoNombre = new System.Windows.Forms.TextBox();
-            this.cmdAgregar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNuevoTramite = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNuevoCodigo = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTramite = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblCodigo = new System.Windows.Forms.Label();
             this.cmdEliminar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lstLista = new System.Windows.Forms.ListBox();
             this.dgvGrilla = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmTramite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblTramite = new System.Windows.Forms.Label();
+            this.lstLista = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,6 +85,64 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuevo Elemento";
             // 
+            // cmdAgregar
+            // 
+            this.cmdAgregar.Location = new System.Drawing.Point(6, 128);
+            this.cmdAgregar.Name = "cmdAgregar";
+            this.cmdAgregar.Size = new System.Drawing.Size(253, 47);
+            this.cmdAgregar.TabIndex = 6;
+            this.cmdAgregar.Text = "Agregar";
+            this.cmdAgregar.UseVisualStyleBackColor = true;
+            this.cmdAgregar.Click += new System.EventHandler(this.cmdAgregar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Nombre";
+            // 
+            // txtNuevoNombre
+            // 
+            this.txtNuevoNombre.Location = new System.Drawing.Point(56, 66);
+            this.txtNuevoNombre.Name = "txtNuevoNombre";
+            this.txtNuevoNombre.Size = new System.Drawing.Size(203, 20);
+            this.txtNuevoNombre.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 95);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tramite";
+            // 
+            // txtNuevoTramite
+            // 
+            this.txtNuevoTramite.Location = new System.Drawing.Point(56, 92);
+            this.txtNuevoTramite.Name = "txtNuevoTramite";
+            this.txtNuevoTramite.Size = new System.Drawing.Size(203, 20);
+            this.txtNuevoTramite.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(10, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Codigo";
+            // 
+            // txtNuevoCodigo
+            // 
+            this.txtNuevoCodigo.Location = new System.Drawing.Point(56, 37);
+            this.txtNuevoCodigo.Name = "txtNuevoCodigo";
+            this.txtNuevoCodigo.Size = new System.Drawing.Size(203, 20);
+            this.txtNuevoCodigo.TabIndex = 0;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblTramite);
@@ -101,63 +159,32 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Elemento Eliminado";
             // 
-            // txtNuevoCodigo
+            // lblTramite
             // 
-            this.txtNuevoCodigo.Location = new System.Drawing.Point(56, 37);
-            this.txtNuevoCodigo.Name = "txtNuevoCodigo";
-            this.txtNuevoCodigo.Size = new System.Drawing.Size(203, 20);
-            this.txtNuevoCodigo.TabIndex = 0;
+            this.lblTramite.BackColor = System.Drawing.SystemColors.Control;
+            this.lblTramite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTramite.Location = new System.Drawing.Point(75, 92);
+            this.lblTramite.Name = "lblTramite";
+            this.lblTramite.Size = new System.Drawing.Size(184, 20);
+            this.lblTramite.TabIndex = 16;
             // 
-            // label1
+            // lblNombre
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Codigo";
+            this.lblNombre.BackColor = System.Drawing.SystemColors.Control;
+            this.lblNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblNombre.Location = new System.Drawing.Point(75, 66);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(184, 20);
+            this.lblNombre.TabIndex = 15;
             // 
-            // label2
+            // lblCodigo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 95);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Tramite";
-            // 
-            // txtNuevoTramite
-            // 
-            this.txtNuevoTramite.Location = new System.Drawing.Point(56, 92);
-            this.txtNuevoTramite.Name = "txtNuevoTramite";
-            this.txtNuevoTramite.Size = new System.Drawing.Size(203, 20);
-            this.txtNuevoTramite.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Nombre";
-            // 
-            // txtNuevoNombre
-            // 
-            this.txtNuevoNombre.Location = new System.Drawing.Point(56, 66);
-            this.txtNuevoNombre.Name = "txtNuevoNombre";
-            this.txtNuevoNombre.Size = new System.Drawing.Size(203, 20);
-            this.txtNuevoNombre.TabIndex = 4;
-            // 
-            // cmdAgregar
-            // 
-            this.cmdAgregar.Location = new System.Drawing.Point(6, 128);
-            this.cmdAgregar.Name = "cmdAgregar";
-            this.cmdAgregar.Size = new System.Drawing.Size(253, 47);
-            this.cmdAgregar.TabIndex = 6;
-            this.cmdAgregar.Text = "Agregar";
-            this.cmdAgregar.UseVisualStyleBackColor = true;
-            this.cmdAgregar.Click += new System.EventHandler(this.cmdAgregar_Click);
+            this.lblCodigo.BackColor = System.Drawing.SystemColors.Control;
+            this.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblCodigo.Location = new System.Drawing.Point(75, 37);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(184, 20);
+            this.lblCodigo.TabIndex = 14;
             // 
             // cmdEliminar
             // 
@@ -178,15 +205,6 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Nombre";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 95);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Tramite";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -195,6 +213,15 @@
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "Codigo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 95);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Tramite";
             // 
             // groupBox3
             // 
@@ -206,14 +233,6 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Listado en una Lista y una Grilla";
-            // 
-            // lstLista
-            // 
-            this.lstLista.FormattingEnabled = true;
-            this.lstLista.Location = new System.Drawing.Point(6, 19);
-            this.lstLista.Name = "lstLista";
-            this.lstLista.Size = new System.Drawing.Size(195, 199);
-            this.lstLista.TabIndex = 0;
             // 
             // dgvGrilla
             // 
@@ -248,32 +267,13 @@
             this.clmTramite.Name = "clmTramite";
             this.clmTramite.ReadOnly = true;
             // 
-            // lblCodigo
+            // lstLista
             // 
-            this.lblCodigo.BackColor = System.Drawing.SystemColors.Control;
-            this.lblCodigo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCodigo.Location = new System.Drawing.Point(75, 37);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(184, 20);
-            this.lblCodigo.TabIndex = 14;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.BackColor = System.Drawing.SystemColors.Control;
-            this.lblNombre.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblNombre.Location = new System.Drawing.Point(75, 66);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(184, 20);
-            this.lblNombre.TabIndex = 15;
-            // 
-            // lblTramite
-            // 
-            this.lblTramite.BackColor = System.Drawing.SystemColors.Control;
-            this.lblTramite.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblTramite.Location = new System.Drawing.Point(75, 92);
-            this.lblTramite.Name = "lblTramite";
-            this.lblTramite.Size = new System.Drawing.Size(184, 20);
-            this.lblTramite.TabIndex = 16;
+            this.lstLista.FormattingEnabled = true;
+            this.lstLista.Location = new System.Drawing.Point(6, 19);
+            this.lstLista.Name = "lstLista";
+            this.lstLista.Size = new System.Drawing.Size(195, 199);
+            this.lstLista.TabIndex = 0;
             // 
             // frmCola
             // 
