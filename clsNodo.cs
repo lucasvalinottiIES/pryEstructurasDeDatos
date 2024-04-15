@@ -12,8 +12,10 @@ namespace pryEstructurasDeDatos
         private Int32 cod;
         private String nom;
         private String tra;
+        private clsNodo ant;
         private clsNodo sig;
         #endregion
+
 
         #region Propiedades
         public Int32 Codigo
@@ -30,6 +32,11 @@ namespace pryEstructurasDeDatos
         {
             get { return tra; }
             set { tra = value; }
+        }
+        public clsNodo Anterior
+        {
+            get { return ant; }
+            set { ant = value; }
         }
         public clsNodo Siguiente
         {
