@@ -98,33 +98,33 @@
             // cmdCola
             // 
             this.cmdCola.Name = "cmdCola";
-            this.cmdCola.Size = new System.Drawing.Size(180, 22);
+            this.cmdCola.Size = new System.Drawing.Size(137, 22);
             this.cmdCola.Text = "Cola";
             this.cmdCola.Click += new System.EventHandler(this.cmdCola_Click);
             // 
             // cmdPila
             // 
             this.cmdPila.Name = "cmdPila";
-            this.cmdPila.Size = new System.Drawing.Size(180, 22);
+            this.cmdPila.Size = new System.Drawing.Size(137, 22);
             this.cmdPila.Text = "Pila";
             this.cmdPila.Click += new System.EventHandler(this.cmdPila_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(134, 6);
             // 
             // cmdListaSimple
             // 
             this.cmdListaSimple.Name = "cmdListaSimple";
-            this.cmdListaSimple.Size = new System.Drawing.Size(180, 22);
+            this.cmdListaSimple.Size = new System.Drawing.Size(137, 22);
             this.cmdListaSimple.Text = "Lista Simple";
             this.cmdListaSimple.Click += new System.EventHandler(this.cmdListaSimple_Click);
             // 
             // cmdListaDoble
             // 
             this.cmdListaDoble.Name = "cmdListaDoble";
-            this.cmdListaDoble.Size = new System.Drawing.Size(180, 22);
+            this.cmdListaDoble.Size = new System.Drawing.Size(137, 22);
             this.cmdListaDoble.Text = "Lista Doble";
             this.cmdListaDoble.Click += new System.EventHandler(this.cmdListaDoble_Click);
             // 
@@ -139,8 +139,9 @@
             // cmdArbolBinario
             // 
             this.cmdArbolBinario.Name = "cmdArbolBinario";
-            this.cmdArbolBinario.Size = new System.Drawing.Size(143, 22);
+            this.cmdArbolBinario.Size = new System.Drawing.Size(180, 22);
             this.cmdArbolBinario.Text = "Arbol Binario";
+            this.cmdArbolBinario.Click += new System.EventHandler(this.cmdArbolBinario_Click);
             // 
             // baseDeDatosToolStripMenuItem
             // 

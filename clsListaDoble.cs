@@ -15,8 +15,6 @@ namespace pryEstructurasDeDatos
         private clsNodo ult;
         #endregion
 
-
-
         #region Propiedades
         public clsNodo Primero
         {
