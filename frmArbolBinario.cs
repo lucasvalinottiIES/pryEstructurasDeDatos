@@ -21,18 +21,47 @@ namespace pryEstructurasDeDatos
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            clsNodo objNodo = new clsNodo();
-            objNodo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
-            objNodo.Nombre = txtNuevoNombre.Text;
-            objNodo.Tramite = txtNuevoTramite.Text;
-            Arbol.Agregar(objNodo);
+            clsNodo Nuevo = new clsNodo();
+            Nuevo.Tramite = txtNuevoCodigo.Text;
+            Nuevo.Nombre = txtNuevoNombre.Text;
+            Nuevo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
+            Arbol.Agregar(Nuevo);
             Arbol.Recorrer(dgvGrilla);
             Arbol.Recorrer(cbCodigo);
-            Arbol.Recorrer(tvArbol);
+            Arbol.RecorrerPre(tvArbol);
+            Arbol.Recorrer();
+        }
 
-            txtNuevoCodigo.Text = "";
-            txtNuevoNombre.Text = "";
-            txtNuevoTramite.Text = "";
+        private void cmdEliminar_Click(object sender, EventArgs e)
+        {
+            Arbol.Eliminar(Convert.ToInt32(cbCodigo.Text));
+            Arbol.Recorrer(dgvGrilla);
+            Arbol.RecorrerPre(tvArbol);
+            Arbol.Recorrer(cbCodigo);
+            Arbol.Recorrer();
+        }
+
+        private void cmdEquilibrar_Click(object sender, EventArgs e)
+        {
+            Arbol.Equilibrar();
+            Arbol.Recorrer(dgvGrilla);
+        }
+
+        private void optInOrdenAsc_CheckedChanged(object sender, EventArgs e)
+        {
+            if(optInOrdenAsc.Checked)
+            {
+                Arbol.Recorrer(dgvGrilla);
+                Arbol.Recorrer(cbCodigo);
+            }
+        }
+
+        private void optPreOrden_CheckedChanged(object sender, EventArgs e)
+        {
+            if(optPreOrden.Checked)
+            {
+                Arbol.RecorrerPre(tvArbol);
+            }
         }
     }
 }

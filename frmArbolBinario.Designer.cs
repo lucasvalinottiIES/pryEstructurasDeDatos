@@ -31,6 +31,7 @@
             this.optPreOrden = new System.Windows.Forms.RadioButton();
             this.optInOrdenAsc = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.optInOrdenDes = new System.Windows.Forms.RadioButton();
             this.optPostOrden = new System.Windows.Forms.RadioButton();
             this.dgvGrilla = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,7 +51,6 @@
             this.txtNuevoCodigo = new System.Windows.Forms.TextBox();
             this.tvArbol = new System.Windows.Forms.TreeView();
             this.cmdEquilibrar = new System.Windows.Forms.Button();
-            this.optInOrdenDes = new System.Windows.Forms.RadioButton();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrilla)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -66,6 +66,7 @@
             this.optPreOrden.TabIndex = 1;
             this.optPreOrden.Text = "Pre-Orden";
             this.optPreOrden.UseVisualStyleBackColor = true;
+            this.optPreOrden.CheckedChanged += new System.EventHandler(this.optPreOrden_CheckedChanged);
             // 
             // optInOrdenAsc
             // 
@@ -75,8 +76,10 @@
             this.optInOrdenAsc.Name = "optInOrdenAsc";
             this.optInOrdenAsc.Size = new System.Drawing.Size(126, 17);
             this.optInOrdenAsc.TabIndex = 0;
+            this.optInOrdenAsc.TabStop = true;
             this.optInOrdenAsc.Text = "In-Orden Ascendente";
             this.optInOrdenAsc.UseVisualStyleBackColor = true;
+            this.optInOrdenAsc.CheckedChanged += new System.EventHandler(this.optInOrdenAsc_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -91,6 +94,16 @@
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Listado en una Lista y una Grilla";
+            // 
+            // optInOrdenDes
+            // 
+            this.optInOrdenDes.AutoSize = true;
+            this.optInOrdenDes.Location = new System.Drawing.Point(12, 97);
+            this.optInOrdenDes.Name = "optInOrdenDes";
+            this.optInOrdenDes.Size = new System.Drawing.Size(133, 17);
+            this.optInOrdenDes.TabIndex = 3;
+            this.optInOrdenDes.Text = "In-Orden Descendente";
+            this.optInOrdenDes.UseVisualStyleBackColor = true;
             // 
             // optPostOrden
             // 
@@ -164,6 +177,7 @@
             this.cmdEliminar.TabIndex = 13;
             this.cmdEliminar.Text = "Eliminar";
             this.cmdEliminar.UseVisualStyleBackColor = true;
+            this.cmdEliminar.Click += new System.EventHandler(this.cmdEliminar_Click);
             // 
             // label6
             // 
@@ -263,16 +277,7 @@
             this.cmdEquilibrar.TabIndex = 7;
             this.cmdEquilibrar.Text = "Equilibrar";
             this.cmdEquilibrar.UseVisualStyleBackColor = true;
-            // 
-            // optInOrdenDes
-            // 
-            this.optInOrdenDes.AutoSize = true;
-            this.optInOrdenDes.Location = new System.Drawing.Point(12, 97);
-            this.optInOrdenDes.Name = "optInOrdenDes";
-            this.optInOrdenDes.Size = new System.Drawing.Size(133, 17);
-            this.optInOrdenDes.TabIndex = 3;
-            this.optInOrdenDes.Text = "In-Orden Descendente";
-            this.optInOrdenDes.UseVisualStyleBackColor = true;
+            this.cmdEquilibrar.Click += new System.EventHandler(this.cmdEquilibrar_Click);
             // 
             // frmArbolBinario
             // 
