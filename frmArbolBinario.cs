@@ -21,17 +21,28 @@ namespace pryEstructurasDeDatos
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            clsNodo Nuevo = new clsNodo();
-            Nuevo.Tramite = txtNuevoCodigo.Text;
-            Nuevo.Nombre = txtNuevoNombre.Text;
-            Nuevo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
-            Arbol.Agregar(Nuevo);
-            Arbol.Recorrer(dgvGrilla);
-            Arbol.Recorrer(cbCodigo);
-            Arbol.RecorrerPre(tvArbol);
-            Arbol.Recorrer();
-            cmdEliminar.Enabled = true;
-            cmdEquilibrar.Enabled = true;
+            try
+            {
+                clsNodo Nuevo = new clsNodo();
+                Nuevo.Tramite = txtNuevoTramite.Text;
+                Nuevo.Nombre = txtNuevoNombre.Text;
+                Nuevo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
+                Arbol.Agregar(Nuevo);
+                Arbol.Recorrer(dgvGrilla);
+                Arbol.Recorrer(cbCodigo);
+                Arbol.RecorrerPre(tvArbol);
+                Arbol.Recorrer();
+                txtNuevoCodigo.Text = "";
+                txtNuevoNombre.Text = "";
+                txtNuevoTramite.Text = "";
+                cmdEquilibrar.Enabled = true;
+                cbCodigo.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                // Muestro error en caso de que ocurra.
+                MessageBox.Show(ex.Message, "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
@@ -52,6 +63,7 @@ namespace pryEstructurasDeDatos
                 cmdEliminar.Enabled = false;
                 cmdEquilibrar.Enabled = false;
             }
+            cbCodigo.SelectedIndex = -1;
         }
 
         private void cmdEquilibrar_Click(object sender, EventArgs e)
@@ -84,6 +96,11 @@ namespace pryEstructurasDeDatos
                 cmdEliminar.Enabled = false;
                 cmdEquilibrar.Enabled = false;
             }
+        }
+
+        private void cbCodigo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbCodigo.Text != "") cmdEliminar.Enabled = true;
         }
     }
 }

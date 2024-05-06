@@ -21,17 +21,27 @@ namespace pryEstructurasDeDatos
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            clsNodo objNodo = new clsNodo();
-            objNodo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
-            objNodo.Nombre = txtNuevoNombre.Text;
-            objNodo.Tramite = txtNuevoTramite.Text;
-            PilaDePersonas.Agregar(objNodo);
-            PilaDePersonas.Recorrer(dgvGrilla);
-            PilaDePersonas.Recorrer(lstLista);
-            PilaDePersonas.Recorrer();
-            txtNuevoCodigo.Text = "";
-            txtNuevoNombre.Text = "";
-            txtNuevoTramite.Text = "";
+            try
+            {
+                clsNodo objNodo = new clsNodo();
+                objNodo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
+                objNodo.Nombre = txtNuevoNombre.Text;
+                objNodo.Tramite = txtNuevoTramite.Text;
+                PilaDePersonas.Agregar(objNodo);
+                PilaDePersonas.Recorrer(dgvGrilla);
+                PilaDePersonas.Recorrer(lstLista);
+                PilaDePersonas.Recorrer();
+                txtNuevoCodigo.Text = "";
+                txtNuevoNombre.Text = "";
+                txtNuevoTramite.Text = "";
+                // Habilito boton de eliminar
+                cmdEliminar.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                // Muestro error en caso de que ocurra.
+                MessageBox.Show(ex.Message, "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
@@ -52,6 +62,13 @@ namespace pryEstructurasDeDatos
                 lblNombre.Text = "";
                 lblTramite.Text = "";
             }
+            // Si no hay elementos deshabilito el boton eliminar.
+            if (PilaDePersonas.Primero == null) cmdEliminar.Enabled = false;
+        }
+
+        private void frmPila_Load(object sender, EventArgs e)
+        {
+            cmdEliminar.Enabled = false;
         }
     }
 }

@@ -127,6 +127,7 @@
             this.cbCodigo.Name = "cbCodigo";
             this.cbCodigo.Size = new System.Drawing.Size(190, 21);
             this.cbCodigo.TabIndex = 14;
+            this.cbCodigo.SelectedIndexChanged += new System.EventHandler(this.cbCodigo_SelectedIndexChanged);
             // 
             // cmdEliminar
             // 

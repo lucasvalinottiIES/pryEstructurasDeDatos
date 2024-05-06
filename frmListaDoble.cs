@@ -21,29 +21,38 @@ namespace pryEstructurasDeDatos
 
         private void cmdAgregar_Click(object sender, EventArgs e)
         {
-            clsNodo objNodo = new clsNodo();
-            objNodo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
-            objNodo.Nombre = txtNuevoNombre.Text;
-            objNodo.Tramite = txtNuevoTramite.Text;
-            ListaDePersonas.Agregar(objNodo);
-            if (optAscendente.Checked)
+            try
             {
-                ListaDePersonas.Recorrer(dgvGrilla);
-                ListaDePersonas.Recorrer(lstLista);
-                ListaDePersonas.Recorrer(cbCodigo);
-                ListaDePersonas.Recorrer();
+                clsNodo objNodo = new clsNodo();
+                objNodo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
+                objNodo.Nombre = txtNuevoNombre.Text;
+                objNodo.Tramite = txtNuevoTramite.Text;
+                ListaDePersonas.Agregar(objNodo);
+                if (optAscendente.Checked)
+                {
+                    ListaDePersonas.Recorrer(dgvGrilla);
+                    ListaDePersonas.Recorrer(lstLista);
+                    ListaDePersonas.Recorrer(cbCodigo);
+                    ListaDePersonas.Recorrer();
+                }
+                else 
+                {
+                    ListaDePersonas.RecorrerD(dgvGrilla);
+                    ListaDePersonas.RecorrerD(lstLista);
+                    ListaDePersonas.RecorrerD(cbCodigo);
+                    ListaDePersonas.RecorrerD();
+                }
+                txtNuevoCodigo.Text = "";
+                txtNuevoNombre.Text = "";
+                txtNuevoTramite.Text = "";
+                cmdEliminar.Enabled = true;
+                cbCodigo.SelectedIndex = 0;
             }
-            else 
+            catch (Exception ex)
             {
-                ListaDePersonas.RecorrerD(dgvGrilla);
-                ListaDePersonas.RecorrerD(lstLista);
-                ListaDePersonas.RecorrerD(cbCodigo);
-                ListaDePersonas.RecorrerD();
+                // Muestro error en caso de que ocurra.
+                MessageBox.Show(ex.Message, "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            txtNuevoCodigo.Text = "";
-            txtNuevoNombre.Text = "";
-            txtNuevoTramite.Text = "";
-            cmdEliminar.Enabled = true;
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
@@ -66,9 +75,6 @@ namespace pryEstructurasDeDatos
                     ListaDePersonas.RecorrerD();
                 }
                 cbCodigo.SelectedIndex = -1;
-            }
-            if(ListaDePersonas.Primero == null)
-            {
                 cmdEliminar.Enabled = false;
             }
         }
@@ -83,6 +89,11 @@ namespace pryEstructurasDeDatos
         {
             if(optAscendente.Checked) ListaDePersonas.Recorrer(dgvGrilla);
             else if(optDescendente.Checked) ListaDePersonas.RecorrerD(dgvGrilla);
+        }
+
+        private void cbCodigo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCodigo.Text != "") cmdEliminar.Enabled = true;
         }
     }
 }

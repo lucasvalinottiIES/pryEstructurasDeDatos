@@ -127,10 +127,11 @@
             // 
             this.cbCodigo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCodigo.FormattingEnabled = true;
-            this.cbCodigo.Location = new System.Drawing.Point(69, 37);
+            this.cbCodigo.Location = new System.Drawing.Point(68, 37);
             this.cbCodigo.Name = "cbCodigo";
             this.cbCodigo.Size = new System.Drawing.Size(190, 21);
             this.cbCodigo.TabIndex = 15;
+            this.cbCodigo.SelectedIndexChanged += new System.EventHandler(this.cbCodigo_SelectedIndexChanged);
             // 
             // cmdEliminar
             // 
