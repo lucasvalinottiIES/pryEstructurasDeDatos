@@ -43,6 +43,7 @@ namespace pryEstructurasDeDatos
             txtNuevoCodigo.Text = "";
             txtNuevoNombre.Text = "";
             txtNuevoTramite.Text = "";
+            cmdEliminar.Enabled = true;
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
@@ -65,13 +66,23 @@ namespace pryEstructurasDeDatos
                     ListaDePersonas.RecorrerD();
                 }
                 cbCodigo.SelectedIndex = -1;
-
+            }
+            if(ListaDePersonas.Primero == null)
+            {
+                cmdEliminar.Enabled = false;
             }
         }
 
         private void frmListaDoble_Load(object sender, EventArgs e)
         {
             ListaDePersonas.Recorrer(cbCodigo);
+            cmdEliminar.Enabled = false;
+        }
+
+        private void optAscendente_CheckedChanged(object sender, EventArgs e)
+        {
+            if(optAscendente.Checked) ListaDePersonas.Recorrer(dgvGrilla);
+            else if(optDescendente.Checked) ListaDePersonas.RecorrerD(dgvGrilla);
         }
     }
 }

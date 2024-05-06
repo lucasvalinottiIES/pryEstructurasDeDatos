@@ -38,7 +38,7 @@ namespace pryEstructurasDeDatos
             }
             else
             {
-                if(Nuevo.Codigo < Primero.Codigo)
+                if(Nuevo.Codigo <= Primero.Codigo)
                 {
                     Nuevo.Siguiente = Primero;
                     Primero.Anterior = Nuevo;

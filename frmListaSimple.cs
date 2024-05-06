@@ -32,11 +32,13 @@ namespace pryEstructurasDeDatos
             txtNuevoCodigo.Text = "";
             txtNuevoNombre.Text = "";
             txtNuevoTramite.Text = "";
+            cmdEliminar.Enabled = true;
         }
 
         private void frmListaSimple_Load(object sender, EventArgs e)
         {
             ListaDePersonas.Recorrer(cbCodigo);
+            cmdEliminar.Enabled = false;
         }
 
         private void cmdEliminar_Click(object sender, EventArgs e)
@@ -49,8 +51,8 @@ namespace pryEstructurasDeDatos
                 ListaDePersonas.Recorrer(cbCodigo);
                 ListaDePersonas.Recorrer();
                 cbCodigo.SelectedIndex = -1;
-
             }
+            if (ListaDePersonas.Primero == null) cmdEliminar.Enabled = false;
         }
     }
 }
