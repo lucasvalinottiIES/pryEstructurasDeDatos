@@ -25,6 +25,8 @@ namespace pryEstructurasDeDatos
         #endregion
 
         #region Metodos
+
+        #region Agregar
         public void Agregar(clsNodo Nuevo)
         {
             Nuevo.Izquierdo = null;
@@ -59,6 +61,12 @@ namespace pryEstructurasDeDatos
                 }
             }
         }
+
+        #endregion
+
+        #region Recorrer
+
+        #region InOrdenAsc
         public void Recorrer(DataGridView Grilla)
         {
             Grilla.Rows.Clear();
@@ -92,6 +100,46 @@ namespace pryEstructurasDeDatos
             Combo.Items.Add(R.Codigo);
             if (R.Derecho != null) InOrdenAsc(Combo, R.Derecho);
         }
+
+
+        public void Recorrer()
+        {
+            clsNodo aux = Raiz;
+            StreamWriter AD = new StreamWriter("Arbol Binario.csv", false, Encoding.UTF8);
+            AD.WriteLine("Lista de espera\n");
+            AD.WriteLine("Código, Nombre, Trámite");
+            InOrdenAsc(Raiz, AD);
+            AD.Close();
+        }
+
+        private void InOrdenAsc(clsNodo R, StreamWriter AD)
+        {
+            if (R.Izquierdo != null) InOrdenAsc(R.Izquierdo, AD);
+            AD.Write(R.Codigo);
+            AD.Write(";");
+            AD.Write(R.Nombre);
+            AD.Write(";");
+            AD.WriteLine(R.Tramite);
+            if (R.Derecho != null) InOrdenAsc(R.Derecho, AD);
+        }
+        #endregion
+
+        #region InOrdenDesc
+        public void RecorrerDesc(DataGridView Grilla)
+        {
+            Grilla.Rows.Clear();
+            InOrdenDesc(Grilla, Raiz);
+        }
+
+        private void InOrdenDesc(DataGridView Grilla, clsNodo R)
+        {
+            if (R.Derecho != null) InOrdenDesc(Grilla, R.Derecho);
+            Grilla.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
+            if (R.Izquierdo != null) InOrdenDesc(Grilla, R.Izquierdo);
+        }
+        #endregion
+
+        #region PreOrden
         public void RecorrerPre(TreeView Tree)
         {
             Tree.Nodes.Clear();
@@ -108,27 +156,6 @@ namespace pryEstructurasDeDatos
             if (R.Derecho != null) PreOrden(R.Derecho, nodoPadre);
         }
 
-        public void Recorrer()
-        {
-            clsNodo aux = Raiz;
-            StreamWriter AD = new StreamWriter("Arbol Binario.csv", false, Encoding.UTF8);
-            AD.WriteLine("Lista de espera\n");
-            AD.WriteLine("Código, Nombre, Trámite");
-            InOrdenAsc(Raiz, AD);
-            AD.Close();
-        }
-
-        private void InOrdenAsc(clsNodo R, StreamWriter AD)
-        {
-            if (R.Izquierdo != null) InOrdenAsc( R.Izquierdo, AD);
-            AD.Write(R.Codigo);
-            AD.Write(";");
-            AD.Write(R.Nombre);
-            AD.Write(";");
-            AD.WriteLine(R.Tramite);
-            if (R.Derecho != null) InOrdenAsc(R.Derecho, AD);
-        }
-
         public void RecorrerPre(DataGridView Grilla)
         {
             Grilla.Rows.Clear();
@@ -140,6 +167,24 @@ namespace pryEstructurasDeDatos
             if (R.Izquierdo != null) PreOrden(R.Izquierdo, Grilla);
             if (R.Derecho != null) PreOrden(R.Derecho, Grilla);
         }
+        #endregion
+
+        #region PostOrden 
+        public void RecorrerPost(DataGridView Grilla)
+        {
+            Grilla.Rows.Clear();
+            PostOrden(Raiz, Grilla);
+        }
+
+        private void PostOrden(clsNodo R, DataGridView Grilla)
+        {
+            if (R.Izquierdo != null) PostOrden(R.Izquierdo, Grilla);
+            if (R.Derecho != null) PostOrden(R.Derecho, Grilla);
+            Grilla.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
+        }
+
+        #endregion
+
         public clsNodo BuscarCodigo(Int32 cod)
         {
             clsNodo Aux = Raiz;
@@ -151,6 +196,19 @@ namespace pryEstructurasDeDatos
             }
             return Aux;
         }
+        #endregion
+
+        #region Eliminar
+        public void Eliminar(Int32 codigo)
+        {
+            i = 0;
+            GrabarVectorInOrden(Raiz, codigo);
+            Raiz = null;
+            EquilibrarArbol(0, i - 1);
+        }
+        #endregion
+
+        #region Equilibrar
         public void Equilibrar()
         {
             i = 0;
@@ -175,19 +233,15 @@ namespace pryEstructurasDeDatos
                 EquilibrarArbol(m + 1, fin);
             }
         }
-        public void Eliminar(Int32 codigo)
-        {
-            i = 0;
-            GrabarVectorInOrden(Raiz, codigo);
-            Raiz = null;
-            EquilibrarArbol(0, i - 1);
-        }
+
         private void GrabarVectorInOrden(clsNodo NodoPadre, Int32 Codigo)
         {
             if (NodoPadre.Izquierdo != null) GrabarVectorInOrden(NodoPadre.Izquierdo, Codigo);
             if (NodoPadre.Codigo != Codigo) { Vector[i] = NodoPadre; i = i + 1; }
             if (NodoPadre.Derecho != null) GrabarVectorInOrden(NodoPadre.Derecho, Codigo);
         }
+        #endregion
+        
         #endregion
 
     }

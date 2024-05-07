@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArbolBinario));
             this.optPreOrden = new System.Windows.Forms.RadioButton();
             this.optInOrdenAsc = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -104,6 +105,7 @@
             this.optInOrdenDes.TabIndex = 3;
             this.optInOrdenDes.Text = "In-Orden Descendente";
             this.optInOrdenDes.UseVisualStyleBackColor = true;
+            this.optInOrdenDes.CheckedChanged += new System.EventHandler(this.optInOrdenDes_CheckedChanged);
             // 
             // optPostOrden
             // 
@@ -114,6 +116,7 @@
             this.optPostOrden.TabIndex = 2;
             this.optPostOrden.Text = "Post-Orden";
             this.optPostOrden.UseVisualStyleBackColor = true;
+            this.optPostOrden.CheckedChanged += new System.EventHandler(this.optPostOrden_CheckedChanged);
             // 
             // dgvGrilla
             // 
@@ -290,6 +293,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmArbolBinario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Arbol Binario";

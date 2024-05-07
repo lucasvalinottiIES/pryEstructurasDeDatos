@@ -72,22 +72,8 @@ namespace pryEstructurasDeDatos
             Arbol.RecorrerPre(tvArbol);
         }
 
-        private void optInOrdenAsc_CheckedChanged(object sender, EventArgs e)
-        {
-            if(optInOrdenAsc.Checked)
-            {
-                Arbol.Recorrer(dgvGrilla);
-                Arbol.Recorrer(cbCodigo);
-            }
-        }
+        
 
-        private void optPreOrden_CheckedChanged(object sender, EventArgs e)
-        {
-            if(optPreOrden.Checked)
-            {
-                Arbol.RecorrerPre(tvArbol);
-            }
-        }
 
         private void frmArbolBinario_Load(object sender, EventArgs e)
         {
@@ -101,6 +87,32 @@ namespace pryEstructurasDeDatos
         private void cbCodigo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cbCodigo.Text != "") cmdEliminar.Enabled = true;
+        }
+        private void optInOrdenAsc_CheckedChanged(object sender, EventArgs e)
+        {
+            if (optInOrdenAsc.Checked)
+            {
+                Arbol.Recorrer(dgvGrilla);
+                Arbol.Recorrer(cbCodigo);
+            }
+        }
+        private void optPreOrden_CheckedChanged(object sender, EventArgs e)
+        {
+            if (optPreOrden.Checked)
+            {
+                Arbol.RecorrerPre(tvArbol);
+                Arbol.RecorrerPre(dgvGrilla);
+            }
+            
+        }
+        private void optPostOrden_CheckedChanged(object sender, EventArgs e)
+        {
+            if (optPostOrden.Checked) Arbol.RecorrerPost(dgvGrilla);
+        }
+
+        private void optInOrdenDes_CheckedChanged(object sender, EventArgs e)
+        {
+            if(optInOrdenDes.Checked) Arbol.RecorrerDesc(dgvGrilla);
         }
     }
 }
