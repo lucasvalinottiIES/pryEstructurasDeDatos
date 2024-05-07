@@ -139,7 +139,7 @@
             // cmdArbolBinario
             // 
             this.cmdArbolBinario.Name = "cmdArbolBinario";
-            this.cmdArbolBinario.Size = new System.Drawing.Size(180, 22);
+            this.cmdArbolBinario.Size = new System.Drawing.Size(143, 22);
             this.cmdArbolBinario.Text = "Arbol Binario";
             this.cmdArbolBinario.Click += new System.EventHandler(this.cmdArbolBinario_Click);
             // 
