@@ -105,7 +105,7 @@ namespace pryEstructurasDeDatos
         public void Recorrer()
         {
             clsNodo aux = Raiz;
-            StreamWriter AD = new StreamWriter("Arbol Binario.csv", false, Encoding.UTF8);
+            StreamWriter AD = new StreamWriter("Arbol Binario In Orden Ascendente.csv", false, Encoding.UTF8);
             AD.WriteLine("Lista de espera\n");
             AD.WriteLine("Código, Nombre, Trámite");
             InOrdenAsc(Raiz, AD);
@@ -137,6 +137,27 @@ namespace pryEstructurasDeDatos
             Grilla.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
             if (R.Izquierdo != null) InOrdenDesc(Grilla, R.Izquierdo);
         }
+
+        public void RecorrerDesc()
+        {
+            clsNodo aux = Raiz;
+            StreamWriter AD = new StreamWriter("Arbol Binario In Orden Descendente.csv", false, Encoding.UTF8);
+            AD.WriteLine("Lista de espera\n");
+            AD.WriteLine("Código, Nombre, Trámite");
+            InOrdenDesc(Raiz, AD);
+            AD.Close();
+        }
+
+        private void InOrdenDesc(clsNodo R, StreamWriter AD)
+        {
+            if (R.Derecho != null) InOrdenAsc(R.Derecho, AD);
+            AD.Write(R.Codigo);
+            AD.Write(";");
+            AD.Write(R.Nombre);
+            AD.Write(";");
+            AD.WriteLine(R.Tramite);
+            if (R.Izquierdo != null) InOrdenAsc(R.Izquierdo, AD);
+        }
         #endregion
 
         #region PreOrden
@@ -167,6 +188,27 @@ namespace pryEstructurasDeDatos
             if (R.Izquierdo != null) PreOrden(R.Izquierdo, Grilla);
             if (R.Derecho != null) PreOrden(R.Derecho, Grilla);
         }
+
+        public void RecorrerPre()
+        {
+            clsNodo aux = Raiz;
+            StreamWriter AD = new StreamWriter("Arbol Binario Pre Orden.csv", false, Encoding.UTF8);
+            AD.WriteLine("Lista de espera\n");
+            AD.WriteLine("Código, Nombre, Trámite");
+            PreOrden(Raiz, AD);
+            AD.Close();
+        }
+
+        private void PreOrden(clsNodo R, StreamWriter AD)
+        {
+            AD.Write(R.Codigo);
+            AD.Write(";");
+            AD.Write(R.Nombre);
+            AD.Write(";");
+            AD.WriteLine(R.Tramite);
+            if (R.Izquierdo != null) InOrdenAsc(R.Izquierdo, AD);
+            if (R.Derecho != null) InOrdenAsc(R.Derecho, AD);
+        }
         #endregion
 
         #region PostOrden 
@@ -183,6 +225,26 @@ namespace pryEstructurasDeDatos
             Grilla.Rows.Add(R.Codigo, R.Nombre, R.Tramite);
         }
 
+        public void RecorrerPost()
+        {
+            clsNodo aux = Raiz;
+            StreamWriter AD = new StreamWriter("Arbol Binario Post Orden.csv", false, Encoding.UTF8);
+            AD.WriteLine("Lista de espera\n");
+            AD.WriteLine("Código, Nombre, Trámite");
+            PostOrden(Raiz, AD);
+            AD.Close();
+        }
+
+        private void PostOrden(clsNodo R, StreamWriter AD)
+        {
+            if (R.Izquierdo != null) InOrdenAsc(R.Izquierdo, AD);
+            if (R.Derecho != null) InOrdenAsc(R.Derecho, AD);
+            AD.Write(R.Codigo);
+            AD.Write(";");
+            AD.Write(R.Nombre);
+            AD.Write(";");
+            AD.WriteLine(R.Tramite);
+        }
         #endregion
 
         public clsNodo BuscarCodigo(Int32 cod)

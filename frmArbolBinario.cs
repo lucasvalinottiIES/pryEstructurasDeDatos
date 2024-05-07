@@ -94,6 +94,7 @@ namespace pryEstructurasDeDatos
             {
                 Arbol.Recorrer(dgvGrilla);
                 Arbol.Recorrer(cbCodigo);
+                Arbol.Recorrer();
             }
         }
         private void optPreOrden_CheckedChanged(object sender, EventArgs e)
@@ -102,17 +103,26 @@ namespace pryEstructurasDeDatos
             {
                 Arbol.RecorrerPre(tvArbol);
                 Arbol.RecorrerPre(dgvGrilla);
+                Arbol.RecorrerPre();
             }
             
         }
         private void optPostOrden_CheckedChanged(object sender, EventArgs e)
         {
-            if (optPostOrden.Checked) Arbol.RecorrerPost(dgvGrilla);
+            if (optPostOrden.Checked)
+            {
+                Arbol.RecorrerPost(dgvGrilla);
+                Arbol.RecorrerPost();
+            }
         }
 
         private void optInOrdenDes_CheckedChanged(object sender, EventArgs e)
         {
-            if(optInOrdenDes.Checked) Arbol.RecorrerDesc(dgvGrilla);
+            if (optInOrdenDes.Checked) 
+            {
+                Arbol.RecorrerDesc(dgvGrilla);
+                Arbol.RecorrerDesc();
+            }
         }
     }
 }
