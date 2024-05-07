@@ -60,9 +60,8 @@ namespace pryEstructurasDeDatos
                 lblCodigo.Text = "";
                 lblNombre.Text = "";
                 lblTramite.Text = "";
+                cmdEliminar.Enabled = false;
             }
-            // Deshabilito el boton eliminar si la Cola esta vacia.
-            if(FilaDePersonas.Primero == null) cmdEliminar.Enabled = false;
         }
 
         private void frmCola_Load(object sender, EventArgs e)

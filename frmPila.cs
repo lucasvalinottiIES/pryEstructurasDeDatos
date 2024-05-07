@@ -61,9 +61,8 @@ namespace pryEstructurasDeDatos
                 lblCodigo.Text = "";
                 lblNombre.Text = "";
                 lblTramite.Text = "";
+                cmdEliminar.Enabled = false;
             }
-            // Si no hay elementos deshabilito el boton eliminar.
-            if (PilaDePersonas.Primero == null) cmdEliminar.Enabled = false;
         }
 
         private void frmPila_Load(object sender, EventArgs e)

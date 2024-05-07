@@ -31,22 +31,30 @@ namespace pryEstructurasDeDatos
                 if (optInOrdenAsc.Checked)
                 {
                     Arbol.Recorrer(dgvGrilla);
-                    Arbol.Recorrer(cbCodigo);
                     Arbol.Recorrer();
                 }
-                else if(optInOrdenDes.Checked) 
+                else if (optInOrdenDes.Checked)
                 {
                     Arbol.RecorrerDesc(dgvGrilla);
                     Arbol.RecorrerDesc();
                 }
-                else if (optPreOrden.Checked) Arbol.RecorrerPre(dgvGrilla);
-                else if (optPostOrden.Checked) Arbol.RecorrerPost(dgvGrilla);
+                else if (optPreOrden.Checked)
+                {
+                    Arbol.RecorrerPre(dgvGrilla);
+                    Arbol.RecorrerPre();
+                }
+                else if (optPostOrden.Checked)
+                {
+                    Arbol.RecorrerPost(dgvGrilla);
+                    Arbol.RecorrerPost();
+                }
+                Arbol.Recorrer(cbCodigo);
                 Arbol.RecorrerPre(tvArbol);
                 txtNuevoCodigo.Text = "";
                 txtNuevoNombre.Text = "";
                 txtNuevoTramite.Text = "";
                 cmdEquilibrar.Enabled = true;
-                cbCodigo.SelectedIndex = -1;
+                cbCodigo.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -63,7 +71,6 @@ namespace pryEstructurasDeDatos
                 if (optInOrdenAsc.Checked)
                 {
                     Arbol.Recorrer(dgvGrilla);
-                    Arbol.Recorrer(cbCodigo);
                     Arbol.Recorrer();
                 }
                 else if (optInOrdenDes.Checked)
@@ -71,19 +78,29 @@ namespace pryEstructurasDeDatos
                     Arbol.RecorrerDesc(dgvGrilla);
                     Arbol.RecorrerDesc();
                 }
-                else if (optPreOrden.Checked) Arbol.RecorrerPre(dgvGrilla);
-                else if (optPostOrden.Checked) Arbol.RecorrerPost(dgvGrilla);
+                else if (optPreOrden.Checked)
+                {
+                    Arbol.RecorrerPre(dgvGrilla);
+                    Arbol.RecorrerPre();
+                }
+                else if (optPostOrden.Checked)
+                {
+                    Arbol.RecorrerPost(dgvGrilla);
+                    Arbol.RecorrerPost();
+                }
+                Arbol.Recorrer(cbCodigo);
                 Arbol.RecorrerPre(tvArbol);
             }
-            else
+            // Pregunto nuevamente si es null por si borro el ultimo elemento y asi va a entrar en el bloque.
+            if(Arbol.Raiz == null) 
             {
                 cbCodigo.Items.Clear();
                 dgvGrilla.Rows.Clear();
                 tvArbol.Nodes.Clear();
-                cmdEliminar.Enabled = false;
                 cmdEquilibrar.Enabled = false;
             }
             cbCodigo.SelectedIndex = -1;
+            cmdEliminar.Enabled = false;
         }
 
         private void cmdEquilibrar_Click(object sender, EventArgs e)
