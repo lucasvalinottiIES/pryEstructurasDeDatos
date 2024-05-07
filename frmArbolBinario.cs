@@ -28,10 +28,20 @@ namespace pryEstructurasDeDatos
                 Nuevo.Nombre = txtNuevoNombre.Text;
                 Nuevo.Codigo = Convert.ToInt32(txtNuevoCodigo.Text);
                 Arbol.Agregar(Nuevo);
-                Arbol.Recorrer(dgvGrilla);
-                Arbol.Recorrer(cbCodigo);
+                if (optInOrdenAsc.Checked)
+                {
+                    Arbol.Recorrer(dgvGrilla);
+                    Arbol.Recorrer(cbCodigo);
+                    Arbol.Recorrer();
+                }
+                else if(optInOrdenDes.Checked) 
+                {
+                    Arbol.RecorrerDesc(dgvGrilla);
+                    Arbol.RecorrerDesc();
+                }
+                else if (optPreOrden.Checked) Arbol.RecorrerPre(dgvGrilla);
+                else if (optPostOrden.Checked) Arbol.RecorrerPost(dgvGrilla);
                 Arbol.RecorrerPre(tvArbol);
-                Arbol.Recorrer();
                 txtNuevoCodigo.Text = "";
                 txtNuevoNombre.Text = "";
                 txtNuevoTramite.Text = "";
@@ -50,10 +60,20 @@ namespace pryEstructurasDeDatos
             Arbol.Eliminar(Convert.ToInt32(cbCodigo.Text));
             if(Arbol.Raiz != null)
             {
-                Arbol.Recorrer(dgvGrilla);
+                if (optInOrdenAsc.Checked)
+                {
+                    Arbol.Recorrer(dgvGrilla);
+                    Arbol.Recorrer(cbCodigo);
+                    Arbol.Recorrer();
+                }
+                else if (optInOrdenDes.Checked)
+                {
+                    Arbol.RecorrerDesc(dgvGrilla);
+                    Arbol.RecorrerDesc();
+                }
+                else if (optPreOrden.Checked) Arbol.RecorrerPre(dgvGrilla);
+                else if (optPostOrden.Checked) Arbol.RecorrerPost(dgvGrilla);
                 Arbol.RecorrerPre(tvArbol);
-                Arbol.Recorrer(cbCodigo);
-                Arbol.Recorrer();
             }
             else
             {
