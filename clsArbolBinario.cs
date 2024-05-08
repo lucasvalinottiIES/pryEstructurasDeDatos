@@ -268,6 +268,13 @@ namespace pryEstructurasDeDatos
             Raiz = null;
             EquilibrarArbol(0, i - 1);
         }
+
+        private void GrabarVectorInOrden(clsNodo NodoPadre, Int32 Codigo)
+        {
+            if (NodoPadre.Izquierdo != null) GrabarVectorInOrden(NodoPadre.Izquierdo, Codigo);
+            if (NodoPadre.Codigo != Codigo) { Vector[i] = NodoPadre; i = i + 1; }
+            if (NodoPadre.Derecho != null) GrabarVectorInOrden(NodoPadre.Derecho, Codigo);
+        }
         #endregion
 
         #region Equilibrar
@@ -296,12 +303,7 @@ namespace pryEstructurasDeDatos
             }
         }
 
-        private void GrabarVectorInOrden(clsNodo NodoPadre, Int32 Codigo)
-        {
-            if (NodoPadre.Izquierdo != null) GrabarVectorInOrden(NodoPadre.Izquierdo, Codigo);
-            if (NodoPadre.Codigo != Codigo) { Vector[i] = NodoPadre; i = i + 1; }
-            if (NodoPadre.Derecho != null) GrabarVectorInOrden(NodoPadre.Derecho, Codigo);
-        }
+        
         #endregion
         
         #endregion
