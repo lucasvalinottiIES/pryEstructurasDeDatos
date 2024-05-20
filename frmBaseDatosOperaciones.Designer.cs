@@ -131,6 +131,7 @@
             this.cmdSeleccionSimple.TabIndex = 3;
             this.cmdSeleccionSimple.Text = "Selección Simple";
             this.cmdSeleccionSimple.UseVisualStyleBackColor = true;
+            this.cmdSeleccionSimple.Click += new System.EventHandler(this.cmdSeleccionSimple_Click);
             // 
             // cmdSeleccionMulti
             // 
@@ -140,6 +141,7 @@
             this.cmdSeleccionMulti.TabIndex = 4;
             this.cmdSeleccionMulti.Text = "Selección Multiatributo";
             this.cmdSeleccionMulti.UseVisualStyleBackColor = true;
+            this.cmdSeleccionMulti.Click += new System.EventHandler(this.cmdSeleccionMulti_Click);
             // 
             // groupBox3
             // 
@@ -161,6 +163,7 @@
             this.cmdDiferencia.TabIndex = 2;
             this.cmdDiferencia.Text = "Diferencia";
             this.cmdDiferencia.UseVisualStyleBackColor = true;
+            this.cmdDiferencia.Click += new System.EventHandler(this.cmdDiferencia_Click);
             // 
             // cmdInterseccion
             // 
@@ -170,6 +173,7 @@
             this.cmdInterseccion.TabIndex = 1;
             this.cmdInterseccion.Text = "Intersección";
             this.cmdInterseccion.UseVisualStyleBackColor = true;
+            this.cmdInterseccion.Click += new System.EventHandler(this.cmdInterseccion_Click);
             // 
             // cmdUnion
             // 
@@ -179,6 +183,7 @@
             this.cmdUnion.TabIndex = 0;
             this.cmdUnion.Text = "Unión";
             this.cmdUnion.UseVisualStyleBackColor = true;
+            this.cmdUnion.Click += new System.EventHandler(this.cmdUnion_Click);
             // 
             // frmBaseDatosOperaciones
             // 
